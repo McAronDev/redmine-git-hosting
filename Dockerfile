@@ -14,8 +14,6 @@ RUN set -ex \
     && su -s /bin/sh redmine -c "bundle install --without development test" \
     && apk del .build-deps
 
-ENV REDMINE_PLUGINS_MIGRATE true     
-
 COPY ["ssh-init.sh", "gitolite-init.sh", "entrypoint.sh", "/"]     
 
 RUN set -ex \
