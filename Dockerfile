@@ -20,7 +20,9 @@ RUN set -ex \
     && chmod +x /ssh-init.sh /gitolite-init.sh /entrypoint.sh \
     && mv /docker-entrypoint.sh /previous-entrypoint.sh \
     && mv /entrypoint.sh /docker-entrypoint.sh \
-    && rm -rf /etc/ssh/ssh_host_rsa_key /etc/ssh/ssh_host_dsa_key 
+    && rm -rf /etc/ssh/ssh_host_rsa_key /etc/ssh/ssh_host_dsa_key
+
+VOLUME /var/lib/git
         
 EXPOSE 22
 
