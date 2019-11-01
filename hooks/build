@@ -1,0 +1,1 @@
+docker build --build-arg BUILD_FOR=$(echo "$DOCKER_TAG" | sed -r "s|.*-(.*)|\1|")
