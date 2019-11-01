@@ -40,7 +40,7 @@ RUN set -ex \
     && su-exec redmine cp Gemfile.lock.$adapter Gemfile.lock \
     && su-exec redmine bundle check || bundle install --without development test \
     && su-exec redmine cp -f Gemfile.lock Gemfile.lock.$adapter
-        # last line needed because gitolite hooks can not find ruby
+       # last line needed because gitolite hooks can not find ruby
 
         
 
