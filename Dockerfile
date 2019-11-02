@@ -28,7 +28,11 @@ RUN set -ex \
     && chmod 440 /etc/sudoers.d/redmine \
     \
     && su-exec redmine mkdir /home/redmine/.ssh \
-    && ln -s /usr/local/bin/ruby /usr/bin/ruby
+    \
+    #needed because gitolite hooks can not find ruby
+    && ln -s /usr/local/bin/ruby /usr/bin/ruby \
+    # unlocking user to allow ssh access
+    && passwd -u git
 
 
 ARG BUILD_FOR=sqlite
@@ -40,7 +44,7 @@ RUN set -ex \
     && su-exec redmine cp Gemfile.lock.$adapter Gemfile.lock \
     && su-exec redmine bundle check || bundle install --without development test \
     && su-exec redmine cp -f Gemfile.lock Gemfile.lock.$adapter
-       # last line needed because gitolite hooks can not find ruby
+       # last line
 
         
 
