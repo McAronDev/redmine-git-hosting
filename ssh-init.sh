@@ -2,11 +2,11 @@
 set -ex
 if [ ! -f "/etc/ssh/ssh_host_rsa_key" ]; then
 	# generate fresh rsa key
-	ssh-keygen -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa
+	ssh-keygen -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa -C '##redmine##'
 fi
 if [ ! -f "/etc/ssh/ssh_host_dsa_key" ]; then
 	# generate fresh dsa key
-	ssh-keygen -f /etc/ssh/ssh_host_dsa_key -N '' -t dsa
+	ssh-keygen -f /etc/ssh/ssh_host_dsa_key -N '' -t dsa -C '##redmine##'
 fi
 
 #prepare run dir
