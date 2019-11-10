@@ -1,6 +1,8 @@
 #!/bin/sh
 set -ex
 
+update-ca-certificates # allow to use mounted ca-certs. Mount to /usr/local/share/
+
 export RSAPATH="$(pwd)/plugins/redmine_git_hosting/ssh_keys/redmine_gitolite_admin_id_rsa"
 
 /ssh-init.sh
